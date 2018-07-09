@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/.css">
+</head>
+<body>
+	<header>
+		<nav>
+			<ul>
+				<li>Item 1</li>
+				<li>Item 2</li>
+				<li>Item 3</li>
+				<li>Item 4</li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<div id="total-li"></div>
+		<div id="conteudo"></div>
+	</main>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#total-li").html("Total de Li: "+$("li").length);
+
+			$("li:first").click(function(e){
+				$("#conteudo").html($(this).get(0).tagName+": "+    $(this).get(0).innerHTML);
+				e.stopPropagation();
+			});
+
+			$("*").click(function(e){
+				console.log($(this).get(0).tagName+": "+    $(this).get(0).innerHTML);
+				e.stopPropagation();
+			});
+
+		});
+	</script>
+</body>
+</html>

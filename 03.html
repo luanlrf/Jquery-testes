@@ -1,0 +1,58 @@
+<!doctype html>
+
+	<html lang="pt-BR">
+		<head>
+			<meta charset="UTF-8">
+			<title>Funções internas do jQuery</title>
+			<link rel="stylesheet" type="text/css" href="css/03.css"
+		</head>
+		<body>
+			<main role="main"> <!-- conteúdo principal do site vai na tag main-->
+				<section id="destaque"></section><!--  -->
+
+				<section class="galeria" id="galeria">
+					<div>
+						<img src="images/fundo1_thumb.PNG" alt="galeria" id="fundo1">
+					</div>
+					<div>
+						<img src="images/fundo2_thumb.PNG" alt="galeria" id="fundo2">
+					</div>
+					<div>
+						<img src="images/fundo3_thumb.PNG" alt="galeria" id="fundo3">
+					</div>
+					<div>
+						<img src="images/fundo4_thumb.PNG" alt="galeria" id="fundo4">
+					</div>
+					<div>
+						<img src="images/fundo5_thumb.PNG" alt="galeria" id="fundo5">
+					</div>
+					<div>
+						<img src="images/fundo6_thumb.PNG" alt="galeria" id="fundo6">
+					</div>
+				</section>
+			</main>
+			<script type="text/javascript" src="js/jquery.min.js"></script>
+			<script type="text/javascript">
+			$(document).ready(function(){
+
+				//  ao passar o mouse sobre a imagem,execute uma função
+				$("img").on("mouseover",function(){
+					$(this).css({
+						
+						"-webkit-transform" : "rotate(-15deg)"
+					});
+					var id = $(this).attr("id");
+					$("#destaque").html("<img src='images/"+id+".jpg' class='img-destaque'>");
+				});
+
+				$("img").on("mouseout",function(){
+					$(this).css({
+						"border-radius": "0",
+						"-webkit-transform" : "rotate(0deg)"
+
+					});
+				});
+			});
+			</script>
+		</body>
+	</html>

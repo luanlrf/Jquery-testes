@@ -1,0 +1,30 @@
+@import "cssreset.css";
+
+input {
+	width: 20%;
+	height: 30px;
+	border: solid 1px #ccc;
+	border-radius: 5px;
+	transition-duration: 0.5s;
+}
+.erro {
+	font-family: arial;
+	font-size: .8em;
+	margin-left: 10px;
+	color: red;
+}
+.borda-vermelha{
+	outline: 0;
+	border: solid 1px #a22;
+	box-shadow: 0px 0px 5px #a22;
+}
+.borda-verde{
+	outline: 0;
+	border: solid 1px #2a2;
+	box-shadow:0px 0px 5px #2a2;
+}
+.borda{
+	outline: 1;
+	border: solid 1px #ccc;
+	box-shadow:none;	
+}

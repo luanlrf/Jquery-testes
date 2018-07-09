@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<title>Previsão do tempo</title>
+	<link rel="stylesheet" type="text/css" href="css/tempo.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<header>
+		<div id="link-menu-mobile" class="hidden-to-desktop">
+			&equiv;
+		</div>
+		<div  class="hidden-to-desktop center">New York<br/> <span id="hora-atual"></span></div>
+		<div id="plus"  class="hidden-to-desktop">+</div>
+	</header>
+	<main>
+		<section class="hidden-to-desktop" id="temperatura">
+			<div>Cloudy</div>
+			<div>min: 45° | max: 55°</div>
+			<div class="degree">
+				55°
+			</div>
+		</section>
+		<nav class="menu">
+			<ul> 
+				<li>Sensação Térmica</li>
+				<li>Direção do Vento</li>
+				<li>Umidade do ar</li>
+				<li>Ponto de Orvalho</li>
+				<li>Visibilidade</li>
+				<li>Nascer do Sol</li>
+				<li>Pôr do Sol</li>
+			</ul>
+		</nav>
+		<div class="gradiente-fundo">
+
+		</div>
+
+	</main>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#link-menu-mobile").on("click",function(){
+			$(".menu").toggleClass("slide");
+			$("#temperatura").toggleClass("transparente");
+		});
+		function relogio(){
+					var momentoAtual = new Date();
+				    var hora = momentoAtual.getHours(); 
+				    var minuto = momentoAtual.getMinutes();
+				    var segundo = momentoAtual.getSeconds();
+			
+					if(segundo <=9 ) {
+					   segundo = "0"+segundo;	
+					};
+
+					if(minuto <=9 ) {
+					   minuto = "0"+minuto;	
+					};
+
+					if(hora <=9 ) {
+					   hora = "0"+hora;	
+					};
+
+					$("#hora-atual").html(hora + ":" + minuto + ":" + segundo);
+				}
+
+
+				window.setInterval(relogio, 1000);
+	});
+</script>
+</body>
+</html>

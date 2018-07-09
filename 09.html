@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<title>Treinamento de jQuery</title>
+	<link rel="stylesheet" type="text/css" href="css/09.css">
+</head>
+<body>
+	<header>
+		<h1>Manipulando o DOM(Document Object Model)</h1>
+	</header>
+	<main>
+		<form method="post" action="#">
+		 <p>
+			<label for="nome">Nome:</label>
+<input type="text" name="nome" id="nome" autofocus required pattern="[a-zA-Z0-9]+">
+		 </p>
+		 <p>
+		 	<label for="email">E-mail</label>
+		 <input type="email" name="email" id="email" required>
+		 </p>
+		 <p>
+		 	<label for="senha">Senha</label>
+		 <input type="password" name="senha" id="senha">
+		 </p>
+		 <p>
+		 	<button type="submit">Enviar</button>
+		 </p>
+		</form>
+	</main>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+
+	 function valida(campo){
+
+		$(campo).on("blur",function(){
+			$(".erro").remove();
+			var attr = $(this).attr("required");
+			if(attr == "required"){
+				var letras = $(this).val().length;	
+				if(letras < 6){
+					var erro = "Digite no mínimo 6 caracteres!";
+				$(this).after("<span class='erro'>"+erro+"</span>");
+				$(".erro").fadeOut(2500);
+				$(this).focus();
+				
+				$(this).removeClass().removeAttr("style");
+				$(this).addClass("borda-vermelha");
+								
+				}else{
+					$(this).removeClass().removeAttr("style");
+					$(this).addClass("borda-verde");
+				}//fechando o if do letras
+				var id = $(this).attr("id");
+
+				window.setTimeout(function(){
+					$("#"+id).css({
+					"outline":"1",
+					"border":"solid 1px #ccc",
+					"box-shadow":"none"
+					});
+				},2000);
+			}//fechando o if do required
+
+		});//fechando blur do #nome
+ 	 }//fechando function valida
+
+ 	 valida("#nome");
+ 	 valida("#email");
+ 	 valida("#senha");
+
+	});//fechando jQuery
+</script>
+</body>
+</html>

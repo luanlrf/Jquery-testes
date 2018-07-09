@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/.css">
+</head>
+<body>
+
+	<p>Testando forma de percorrer os elementos do DOM - Traversing</p>
+	<span>Teste impacta</span>
+	<p class="formata">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+	<div>teste escrita</div>
+
+<button type="button" id="add">Adicionando um elemento</button>
+<button type="button" id="find">Formatando pela classe</button>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#add").on("click",function(){
+			$("p").add("div").css("background","#cdcdcd");
+			$("p").after("<span class='teste'>Teste</span>");
+		});
+
+		$("#find").on("click",function(){
+			$("body").find(".formata").css("background","#fff558");
+		});
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<title>Trabalhando com seletores e Pseudo-seletores</title>
+	<link rel="stylesheet" type="text/css" href="css/08.css">
+</head>
+<body>
+	<form method="get" action="http://www.google.com/search">
+		<p>
+			<label for="pesquisa">Pesquisa</label>
+			<input type="search" name="q" id="pesquisa" placeholder="Pesquisar por..." autofocus>
+		</p>		
+		<p>
+	<input type="radio" name="search" checked="checked" id="google">Google
+	<input type="radio" name="search"  id="bing">
+	Bing
+	<input type="radio"name="search" id="yahoo">Yahoo!
+		</p>
+		<p>
+		<button type="submit" formtarget="_blank">Pesquisar</button>
+		</p>
+	</form>
+	<div id="resultado">
+
+	</div>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var id = $(":checked").attr("id");
+		$("#resultado").html(id);
+		$("input[type='radio']").on("click",function(){
+			id = $(":checked").attr("id");
+			var imagem = "<img src='images/"+id+".png'>";
+			$("#resultado").html(imagem);
+			var action = "google";
+			switch(id){
+				case "google":
+				action = "http://www.google.com/search";
+				break;
+				case "bing":
+				action = "http://www.bing.com/search";
+				break;
+				case "yahoo":
+				action = "http://br.search.yahoo.com/search";
+			}
+			$("button[type='submit']").attr("formaction",action);
+		});
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/.css">
+</head>
+<body>
+<input type="range" id="volume-js" min="0" max="1" step="0.1">
+	<span id="resultado-js"></span>
+
+	<input type="range" id="volume" min="0" max="1" step="0.1">
+	<span id="resultado"></span>
+
+<div id="miniatura" style="width:500px; height: 500px; border:solid 1px #333;"></div>
+<video src="resources/Pirates_of_the_Caribbean.mp4" controls autoplay id="video"></video>
+
+<script type="text/javascript">
+	var resultado = document.getElementById("resultado-js");
+	var volume = document.getElementById("volume-js");
+	var video = document.getElementById("video");
+
+	volume.addEventListener("change",function(){
+		video.volume = this.value;
+		resultado.innerHTML = parseInt(this.value * 10);
+	});
+</script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#volume").on("mousemove",function(){
+			$("#video").volume = $(this).val();
+			$("#resultado").html($(this).val());
+		});
+		console.log("Exibindo mensagem no console.");
+		console.error("Exibindo erro no console.");
+		console.info("Exibindo info no console.");
+		console.log($("input").length);
+		
+		$("#miniatura").on("mousemove",function(e){
+			$(this).html("X:"+e.pageX+" Y:"+e.pageY);
+		});
+	});
+</script>
+</body>
+</html>

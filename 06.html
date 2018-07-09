@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<title>Trabalhando com Formulários</title>
+	<link rel="stylesheet" type="text/css" href="css/06.css">
+</head>
+<body>
+	<form method="post" action="#" id="formulario">
+		<p>
+			<label for="nome">Nome:</label>
+<input type="text" name="nome" id="nome" required title="Digite apenas alfanuméricos" autofocus pattern="[à-úÀ-Ú\w\d\s]+" placeholder="Digite o nome..." x-webkit-speech>
+		</p>
+		<p>
+			<label for="email">E-mail</label>
+<input type="email" name="email" id="email" required placeholder="seu@email.com.br">
+		</p>
+		<p>
+			<label for="data">Data Nascimento</label>
+<input type="date" name="data" id="data" min="2014-04-01" max="2014-06-30" required>
+		</p>
+		<p>
+			Pesquisa:
+		 <input type="search" autocomplete="off">
+		</p>
+		<p>
+			<input type="submit" value="Enviar" id="enviar">
+		</p>
+	</form>
+
+	<div id="resultado"></div>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#formulario").on("submit",function(){
+			return false;
+		});
+		$("#enviar").on("click",function(){
+
+			$("#resultado").html($("#formulario").serialize());
+		});
+	});
+</script>
+</body>
+</html>

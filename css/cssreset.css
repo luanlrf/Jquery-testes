@@ -1,0 +1,13 @@
+@charset "UTF-8";
+@import "fonts.css";
+
+* {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+html,body,main{
+	margin:0;
+	padding: 0;
+	outline: 0;
+}

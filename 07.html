@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<title>Lupa para produtos</title>
+	<link rel="stylesheet" type="text/css" href="css/07.css">
+</head>
+<body>
+	<header>
+		<h1>Galaxy S5</h1>
+	</header>  
+	<main>
+		<section id="small">
+			<ul>
+<li><img src="images/galaxy-s5-01-thumb.jpg"alt="Galaxy S5" id="g-01"></li>
+<li><img src="images/galaxy-s5-02-thumb.jpg"alt="Galaxy S5 frente"id="g-02">
+</li>
+<li><img src="images/galaxy-s5-03-thumb.jpg"alt="Galaxy S5 verso" id="g-03"></li>
+<li><img src="images/galaxy-s5-04-thumb.jpg"alt="Galaxy S5" id="g-04"></li>
+<li><img src="images/galaxy-s5-05-thumb.jpg"alt="Galaxy S5" id="g-05"></li>
+<li><img src="images/galaxy-s5-06-thumb.jpg"alt="Galaxy S5" id="g-06"></li>
+			</ul>
+		</section>
+		<section id="normal"></section>
+		<section id="large"></section>
+
+	</main>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#small li img").on("mouseover",function(){
+			$(this).css("cursor","pointer");
+			var id = $(this).attr("id");
+			$("#normal").html(id);
+			$("#normal").removeClass();
+			$("#normal").addClass(id);
+			$("#normal").css({
+				"background":"url('images/"+id+".jpg') no-repeat",
+				"background-size":"contain"
+			});//fechando css
+		});// fechando mouseover #small li img
+
+		$("#normal").on("mouseover",function(){
+			var id = $(this).attr("class");
+			$("#large").css({
+				"background":"url('images/"+id+".jpg') no-repeat",
+				"background-size":"400%"
+			});
+		});
+
+		$("#normal").on("mousemove",function(e){
+			var ml = parseInt($(this).css("margin-left"))*3;
+			var mt = 55;
+			var x = parseInt(e.pageX) - ml - 3;
+			var y = parseInt(e.pageY) - mt;
+			$(this).html("x:"+x+" y:"+y);
+
+			var background = "-"+(x*2)+"px -"+(y*1.99)+"px";
+			$(this).css("cursor","move");
+			$("#large").css({
+				"background-position": background
+			})
+		});
+
+	}); //fechando o ready 
+</script>
+</body>
+</html>

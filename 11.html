@@ -1,0 +1,41 @@
+<!doctype html>
+			<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/11.css">
+	</head>
+	<body>
+	<div class="busca">
+		<input type="search" id="input-busca" placeholder="pesquisar...">
+	</div>
+	<section>
+		<ul>
+			<li>primeiro<li>
+				<li>segundo<li>
+					<li class="item">terceiro<li>
+						<li>quarto<li>
+							<li>quinto<li>
+							</ul>
+	</section>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#input-busca").on("focus",function(){
+
+				$(this).parent("div").css("border","solid 1px #4597F2");
+
+			});
+
+		$("#input-busca").on("blur",function(){
+			$(this).parent("div").css("border","solid 1px #ccc");
+		};
+		var total= $(".item").siblings().css("color","red").length;
+
+		alert(total);
+
+			
+		});
+		</script>
+	</body>
+	</html>	
